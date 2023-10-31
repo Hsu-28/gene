@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body{
+            overflow: hidden;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            background: #faa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        .logo img {
+            vertical-align: top;
+        }
+
+        .nav {
+            /* display: none; */
+            display: flex;
+        }
+
+        .nav a {
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+
+        }
+
+        #menu-check {
+            display: none;
+        }
+
+
+        @media screen and (max-width:767px) {
+            .nav {
+                position: absolute;
+                top: 100%;
+                background: #aaa;
+                flex-direction: column;
+                width: 40%;
+                height: calc(100vh - 50px);
+                right: -100%;
+                transition: .5s;
+            }
+
+            .nav a+a {
+                border-top: 1px solid white;
+            }
+
+            .hb label {
+                width: 40px;
+                height: 40px;
+                background: #aaa;
+                display: block;
+                position: relative;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            .hb label span {
+                width: 60%;
+                height: 3px;
+                background: white;
+                position: absolute;
+                inset: 0;
+                margin: auto;
+            }
+
+            .hb label span:nth-of-type(1) {
+                translate: 0px -8px;
+                transition: translate .3s .3s,
+                            rotate .3s 0s;
+            }
+            .hb label span:nth-of-type(2) {
+                opacity: 1;
+                transition: opacity .3s .6s;
+            }
+            .hb label span:nth-of-type(3) {
+                translate: 0px 8px;
+                transition: translate .3s .3s,
+                            rotate .3s 0s;
+            }
+
+           
+
+            #menu-check:checked+header .nav {
+                right: 0;
+            }
+
+            #menu-check:checked+header .hb label span:nth-of-type(1) {
+                translate: 0px 0px;
+                rotate: 45deg;
+                transition: translate .3s .3s,
+                            rotate .3s .6s;
+            }
+
+            #menu-check:checked+header .hb label span:nth-of-type(2) {
+                opacity: 0;
+                transition: opacity .3s;
+            }
+
+            #menu-check:checked+header .hb label span:nth-of-type(3) {
+                translate: 0px 0px;
+                rotate: -45deg;
+                /* rotate: 315deg; */
+                transition: translate .3s .3s,
+                            rotate .3s .6s;
+            }
+
+
+
+        }
+
+        @media screen and (min-width:768px) {
+            .hb {
+                display: none;
+            }
+
+        }
+
+        @media screen and (min-width:768px) and (hover:hover) {
+            .nav a:hover {
+                color: yellow;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="menu-check">
+    <header>
+        <div class="logo">
+            <a href="">
+                <img src="https://picsum.photos/40/40/?random=10">
+            </a>
+        </div>
+
+        <div class="hb">
+            <label for="menu-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+
+        <div class="nav">
+            <a href="">link</a>
+            <a href="">link</a>
+            <a href="">link</a>
+            <a href="">link</a>
+            <a href="">link</a>
+        </div>
+
+
+    </header>
+
+</body>
+
+</html>

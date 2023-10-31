@@ -124,6 +124,7 @@ nav div{
     background-image: url("img/bg.jpg");
     background-size: 160%;
     background-position: 50% 33%;
+    background-repeat: no-repeat;
     margin-left: 10px;
     z-index: 10;
     height: 50px;
@@ -402,13 +403,18 @@ input::placeholder {
     height: 20px;
 }
 
-.box,
+.box{
+    display: none;
+}
 .close{
+    display: none;
+}
+#menu-check {
     display: none;
 }
 
 @media screen and (max-width: 414px){
-    nav.nav{
+    .nav{
         display: block;
         width: 70%;
         flex-flow: column nowrap;
@@ -431,6 +437,7 @@ input::placeholder {
         margin: 50px auto;
         z-index: 10;
         height: 200px;
+        margin-bottom: 0px;
     
     } 
     
@@ -625,7 +632,7 @@ input::placeholder {
 .contact-form button{
     margin: 20px auto 50px auto;
 }
-.box,
+/* .box,
 .close{
     display: block;
     z-index: 20;
@@ -634,13 +641,58 @@ input::placeholder {
     right: 10px;
 }
 .close{
-    display: block;
-}
-.nav{
-    display: block;
-}
-.box{
     display: none;
 }
+.close.active {
+    display: block; 
+  } */
+  .hb label span {
+    width: 60%;
+    height: 3px;
+    background: white;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
 
-  }
+.hb label span:nth-of-type(1) {
+    translate: 0px -8px;
+    transition: translate .3s .3s,
+                rotate .3s 0s;
+}
+.hb label span:nth-of-type(2) {
+    opacity: 1;
+    transition: opacity .3s .6s;
+}
+.hb label span:nth-of-type(3) {
+    translate: 0px 8px;
+    transition: translate .3s .3s,
+                rotate .3s 0s;
+}
+
+
+
+
+#menu-check:checked+ .hb label span:nth-of-type(1) {
+    translate: 0px 0px;
+    rotate: 45deg;
+    transition: translate .3s .3s,
+                rotate .3s .6s;
+}
+
+#menu-check:checked+ .hb label span:nth-of-type(2) {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+#menu-check:checked+ .hb label span:nth-of-type(3) {
+    translate: 0px 0px;
+    rotate: -45deg;
+    /* rotate: 315deg; */
+    transition: translate .3s .3s,
+                rotate .3s .6s;
+}
+
+}
+
+           

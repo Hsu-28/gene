@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     close.style.display = 'none';
     box.style.display = 'block'; // 顯示box
   });
+
+
   
   window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
