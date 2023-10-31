@@ -17,17 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const teamNavOffset = team.offsetTop;
   const contactNavOffset = contact.offsetTop;
 
-  box.addEventListener('click', () => {
-    nav.style.display = 'block';
-    close.style.display = 'block';
-    box.style.display = 'none'; // 隱藏box
-  });
+  // box.addEventListener('click', () => {
+  //   nav.style.display = 'block';
+  //   close.style.display = 'block';
+  //   box.style.display = 'none'; // 隱藏box
+  // });
   
-  close.addEventListener('click', () => {
-    nav.style.display = 'none';
-    close.style.display = 'none';
-    box.style.display = 'block'; // 顯示box
-  });
+  // close.addEventListener('click', () => {
+  //   nav.style.display = 'none';
+  //   close.style.display = 'none';
+  //   box.style.display = 'block'; // 顯示box
+  // });
 
 
   

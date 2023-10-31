@@ -108,9 +108,14 @@ html{
         transform: translate(-50%,0);
     }
 }
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 nav{
     width: 100%;
-    position: sticky;
+    position: relative;
     display: flex!important;
     flex-flow: row nowrap;
     background-color: var(--colorDark);
@@ -134,10 +139,11 @@ nav ul{
     height: 50px;
     display: flex;
     justify-content: start;
+    margin-right: 10px;
 }
 
 nav li{
-    margin: 0 10px;
+    margin: 0 6px;
 }
 nav ul a{
     text-decoration: none;
@@ -241,7 +247,7 @@ nav ul a:hover::after{
     margin-bottom: 80px;
     letter-spacing: 2px;
 }
-.cards{
+.team-section .cards{
     width: 60%;
     margin: auto;
     display: flex;
@@ -250,16 +256,16 @@ nav ul a:hover::after{
     margin-bottom: 200px;
 }
 
-.cards .card{
+.team-section .cards .card{
     width: 28%;
     height: 80%;
     background-color: darkgray;
 }
 
-.cards .img-container{
+.team-section .cards .img-container{
     width: 100%;
 }
-.cards .card img{
+.team-section .cards .card img{
     width: 50%;
     border-radius: 100%;
     display: block;
@@ -299,7 +305,7 @@ nav ul a:hover::after{
     content: "";
     background-color: orange;
     width: 30px;
-    height: 1px;
+    height: 2px;
     transform: translateY(-50%);
 }
 
@@ -412,6 +418,65 @@ input::placeholder {
 #menu-check {
     display: none;
 }
+.hb{
+    display: none;
+
+}
+.showreel-section h2{
+    margin: 200px auto 80px auto;
+    font-size: 48px;   
+    text-align: center;
+    letter-spacing: 2px;
+}
+.showreel-section .cards{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-bottom: 200px;
+}
+#showreel{
+    margin-top: 40px;
+}
+
+/* .showreel-section .card span:last-of-type{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+} */
+
+.showreel-section .content{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 20px;
+
+}
+.showreel-section .content i{
+    font-size: 12px;
+}
+.showreel-section .card{
+    width: 32%;
+    cursor: pointer;
+
+}
+
+.showreel-section .cards img{
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    width: 100%;
+}
+
+.showreel-section .cards img:hover{
+    border: 2px solid orange;
+}
+.showreel-section .card:hover{
+    color: orange;
+}
+
 
 @media screen and (max-width: 414px){
     .nav{
@@ -421,12 +486,15 @@ input::placeholder {
         height: 100vh;
         justify-content: start;
         background-color: white;
-        position: fixed;
-        top: 0;
         right: 0;
         background-color: rgba(15, 16, 18, 0.95);
         padding: 0 20px 0 20px;
-        display: none;
+        position: fixed;
+        right: -100%;
+        transition: .5s;
+    }
+    #menu-check:checked+.nav {
+        right: 0;
     }
     nav div{
         width: 80%;
@@ -549,7 +617,7 @@ input::placeholder {
         margin-bottom: 80px;
         letter-spacing: 2px;
     }
-    .cards{
+    .team-section .cards{
         width: 60%;
         margin: auto;
         display: flex;
@@ -559,16 +627,16 @@ input::placeholder {
         font-size: 14px;
     }
 
-    .cards .card{
+    .team-section .cards .card{
         width: 100%;
         height: 80%;
         background-color: darkgray;
     }
 
-    .cards .img-container{
+    .team-section .cards .img-container{
         width: 100%;
     }
-    .cards .card img{
+    .team-section .cards .card img{
         width: 50%;
         border-radius: 100%;
         display: block;
@@ -646,10 +714,20 @@ input::placeholder {
 .close.active {
     display: block; 
   } */
-  .hb label span {
+  .hb label {
+    width: 30px;
+    height: 30px;
+    background: var(--colorDark);
+    display: block;
+    position: relative;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.hb label span {
     width: 60%;
-    height: 3px;
-    background: white;
+    height: 2px;
+    background: var(--colorLight);
     position: absolute;
     inset: 0;
     margin: auto;
@@ -672,27 +750,47 @@ input::placeholder {
 
 
 
+#menu-check:checked+header .nav {
+    right: 0;
+}
 
-#menu-check:checked+ .hb label span:nth-of-type(1) {
+#menu-check:checked+header .hb label span:nth-of-type(1) {
     translate: 0px 0px;
     rotate: 45deg;
     transition: translate .3s .3s,
                 rotate .3s .6s;
 }
 
-#menu-check:checked+ .hb label span:nth-of-type(2) {
+#menu-check:checked+header .hb label span:nth-of-type(2) {
     opacity: 0;
     transition: opacity .3s;
 }
 
-#menu-check:checked+ .hb label span:nth-of-type(3) {
+#menu-check:checked+header .hb label span:nth-of-type(3) {
     translate: 0px 0px;
     rotate: -45deg;
     /* rotate: 315deg; */
     transition: translate .3s .3s,
                 rotate .3s .6s;
 }
+.hb{
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+}
 
+.showreel-section .cards{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    margin-bottom: 80px;
+}
+.showreel-section .cards .card{
+    width: 100%;
+    margin-bottom: 40px;
+}
 }
 
            
