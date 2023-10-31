@@ -481,14 +481,14 @@ input::placeholder {
 @media screen and (max-width: 414px){
     .nav{
         display: block;
-        width: 70%;
+        width: 100%;
         flex-flow: column nowrap;
         height: 100vh;
         justify-content: start;
         background-color: white;
         right: 0;
         background-color: rgba(15, 16, 18, 0.95);
-        padding: 0 20px 0 20px;
+        padding: 0;
         position: fixed;
         right: -100%;
         transition: .5s;
@@ -780,12 +780,16 @@ input::placeholder {
     right: 20px;
     z-index: 20;
 }
-
+.showreel-section h2{
+    font-size: 32px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
 .showreel-section .cards{
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    margin-bottom: 80px;
+    margin-bottom: 0px;
 }
 .showreel-section .cards .card{
     width: 100%;
